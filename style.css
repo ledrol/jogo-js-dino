@@ -3,11 +3,11 @@ body {
 }
 
 .dino {
-  position: absolute;
-  bottom: 0;
+  position: absolute; /*O elemento ficará na posição definida independente do que tiver em volta*/
+  bottom: 0; /*Faz o elemento ficar na parte de baixo da página*/
   background-image: url(/img/dino.png);
-  width: 60px;
-  height: 60px;
+  width: 60px; /*Largura de 60 pixels*/
+  height: 60px; /*Altura de 60 pixels*/
 }
 
 .cactus {
@@ -25,7 +25,8 @@ body {
   font-family: arial;
 }
 
-@keyframes slideright {
+/*Realiza a animação deslizando para a direita */
+@keyframes slideright { /*Define as etapas da animação de uma posição inicial para uma final*/
   from {
       background-position: 70000%;
   }
@@ -38,9 +39,9 @@ body {
   position: absolute;
   bottom: 0px;
   background-image: url('/img/background.png');
-  background-repeat: repeat-x;
-  animation: slideright 600s infinite linear;
+  background-repeat: repeat-x; /* Realiza a repetição da imagem no eixo x*/
+  animation: slideright 600s infinite linear; /* Realiza a animação da imagem, deslizando para a direita a cada 600s*/
   -webkit-animation: slideright 600s infinite linear;
-  width: 100%;
+  width: 100%; /*Largura em 100% da tela*/
   height: 200px;
 }

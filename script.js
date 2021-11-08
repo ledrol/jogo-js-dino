@@ -4,6 +4,7 @@ const background = document.querySelector('.background');
 let isJumping = false;
 let isGameOver = false;
 let position = 0;
+let pts = 0;
 
 //Manipula tecla pressionada
 function handleKeyUp(event) { //O argumento "event" é enviado para a função toda vez que é pressionada uma tecla no navegador
@@ -57,6 +58,7 @@ function createCactus() {
       // Saiu da tela
       clearInterval(leftTimer); //Limpa o intervalo para a esquerda
       background.removeChild(cactus); //Remove o elemento filho do background cacto
+      pontos();
     } else if (cactusPosition > 0 && cactusPosition < 60 && position < 60) { //"cactusPosition > 0" Compara se o cacto não saiu da tela
       //"0 < cactusPosition < 60" Compara se o cacto está ocupando o espaço do dinossauro
       //"position < 60" Compara se a posição do pulo do dinossauro é do mesmo tamanho do cacto
@@ -65,12 +67,20 @@ function createCactus() {
       isGameOver = true;
       document.body.innerHTML = '<h1 class="game-over">Fim de jogo</h1>'; //Insere uma nova tag html
     } else {
-      cactusPosition -= 10; //Velociade que o cacto se move para a esquerda
+      cactusPosition -= 10; //Velocidade que o cacto se move para a esquerda
       cactus.style.left = cactusPosition + 'px'; //Define a posição da borda esquerda do cacto
     }
   }, 20);
 
   setTimeout(createCactus, randomTime); //A função está chamando a si mesma depois de um intervalo de tempo em ms
+}
+
+//Responsável pelo número de pontos
+function pontos(){
+  if (position <= 10) { //Se a posição de descida do dinossauro for menor ou igual a 10
+    pts++;  //Incrementa o número de pontos
+    document.getElementById('pont').innerHTML = "Pontos: " + String(pts); //Coloca o número de pontos na id 'pont'
+  }
 }
 
 createCactus(); //Chama a função criar cacto

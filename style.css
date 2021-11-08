@@ -18,6 +18,12 @@ body {
   background-image: url(/img/cactus.png);
 }
 
+#pont {
+  font-family: arial;
+  font-size: 24px;
+  color: #666;
+}
+
 .game-over {
   text-align: center;
   color: #666;
